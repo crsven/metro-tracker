@@ -16,6 +16,10 @@
 		B849DCE81A93C5E400B5EC21 /* BusLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE71A93C5E400B5EC21 /* BusLine.swift */; };
 		B849DCEA1A93C69700B5EC21 /* BusLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */; };
 		B849DCEE1A93CFFC00B5EC21 /* BusLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */; };
+		B849DCEF1A93D08400B5EC21 /* BusLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE71A93C5E400B5EC21 /* BusLine.swift */; };
+		B849DCF11A93D36000B5EC21 /* BusLineTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */; };
+		B849DCF21A93D61500B5EC21 /* BusLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */; };
+		B849DCF31A93E62900B5EC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,7 @@
 		B849DCE71A93C5E400B5EC21 /* BusLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLine.swift; sourceTree = "<group>"; };
 		B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTableViewController.swift; sourceTree = "<group>"; };
 		B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTests.swift; sourceTree = "<group>"; };
+		B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTableViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				B849DCDD1A93C4DF00B5EC21 /* Metro_TrackerTests.swift */,
+				B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */,
 				B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */,
 				B849DCDB1A93C4DF00B5EC21 /* Supporting Files */,
 			);
@@ -211,6 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B849DCF31A93E62900B5EC21 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,8 +239,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B849DCF11A93D36000B5EC21 /* BusLineTableViewControllerTests.swift in Sources */,
 				B849DCEE1A93CFFC00B5EC21 /* BusLineTests.swift in Sources */,
 				B849DCEF1A93D08400B5EC21 /* BusLine.swift in Sources */,
+				B849DCF21A93D61500B5EC21 /* BusLineTableViewController.swift in Sources */,
 				B849DCDE1A93C4DF00B5EC21 /* Metro_TrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

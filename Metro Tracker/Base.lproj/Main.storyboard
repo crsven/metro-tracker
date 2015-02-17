@@ -7,7 +7,7 @@
         <!--Bus Line Search-->
         <scene sceneID="tg1-nx-uoR">
             <objects>
-                <tableViewController id="BvB-Nc-LrG" customClass="BusLineTableViewController" customModule="Metro_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MetroTrackerStoryboard" id="BvB-Nc-LrG" customClass="BusLineTableViewController" customModule="Metro_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="xKx-OQ-f1I">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,6 +35,9 @@
         <scene sceneID="fbe-Di-R55">
             <objects>
                 <navigationController id="p3G-8O-IaA" sceneMemberID="viewController">
+                    <string key="restorationIdentifier" base64-UTF8="YES">
+Cg
+</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TQf-JF-L9S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
