@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		B849DCC51A93C4DF00B5EC21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */; };
 		B849DCC81A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B849DCC61A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodeld */; };
-		B849DCCA1A93C4DF00B5EC21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCC91A93C4DF00B5EC21 /* ViewController.swift */; };
 		B849DCCD1A93C4DF00B5EC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */; };
 		B849DCCF1A93C4DF00B5EC21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCE1A93C4DF00B5EC21 /* Images.xcassets */; };
 		B849DCD21A93C4DF00B5EC21 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B849DCD01A93C4DF00B5EC21 /* LaunchScreen.xib */; };
 		B849DCDE1A93C4DF00B5EC21 /* Metro_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCDD1A93C4DF00B5EC21 /* Metro_TrackerTests.swift */; };
+		B849DCE81A93C5E400B5EC21 /* BusLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE71A93C5E400B5EC21 /* BusLine.swift */; };
+		B849DCEA1A93C69700B5EC21 /* BusLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +32,14 @@
 		B849DCC31A93C4DF00B5EC21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B849DCC71A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Metro_Tracker.xcdatamodel; sourceTree = "<group>"; };
-		B849DCC91A93C4DF00B5EC21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B849DCCC1A93C4DF00B5EC21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B849DCCE1A93C4DF00B5EC21 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B849DCD11A93C4DF00B5EC21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B849DCD71A93C4DF00B5EC21 /* Metro TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Metro TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B849DCDC1A93C4DF00B5EC21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B849DCDD1A93C4DF00B5EC21 /* Metro_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metro_TrackerTests.swift; sourceTree = "<group>"; };
+		B849DCE71A93C5E400B5EC21 /* BusLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLine.swift; sourceTree = "<group>"; };
+		B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +82,9 @@
 			isa = PBXGroup;
 			children = (
 				B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */,
-				B849DCC91A93C4DF00B5EC21 /* ViewController.swift */,
 				B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */,
+				B849DCE71A93C5E400B5EC21 /* BusLine.swift */,
+				B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */,
 				B849DCCE1A93C4DF00B5EC21 /* Images.xcassets */,
 				B849DCD01A93C4DF00B5EC21 /* LaunchScreen.xib */,
 				B849DCC61A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodeld */,
@@ -215,8 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B849DCCA1A93C4DF00B5EC21 /* ViewController.swift in Sources */,
+				B849DCEA1A93C69700B5EC21 /* BusLineTableViewController.swift in Sources */,
 				B849DCC81A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodeld in Sources */,
+				B849DCE81A93C5E400B5EC21 /* BusLine.swift in Sources */,
 				B849DCC51A93C4DF00B5EC21 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
