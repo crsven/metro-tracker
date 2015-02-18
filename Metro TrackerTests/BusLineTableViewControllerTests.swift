@@ -20,9 +20,9 @@ class BusLineTableViewControllerTests: XCTestCase {
         vc.loadView()
         vc.viewDidLoad()
         vc.busLines = [
-            BusLine(runName: "line 1", routeNumber: "1", runNumber: "1-2"),
-            BusLine(runName: "line 2", routeNumber: "1", runNumber: "1-3"),
-            BusLine(runName: "line 3", routeNumber: "1", runNumber: "1-4")
+            BusLine(routeName: "line 1", routeNumber: "1"),
+            BusLine(routeName: "line 2", routeNumber: "1"),
+            BusLine(routeName: "line 3", routeNumber: "1")
         ]
     }
 

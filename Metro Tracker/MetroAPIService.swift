@@ -10,53 +10,34 @@ import Foundation
 import Alamofire
 
 class MetroAPIService {
-    func fetchRuns(respondTo: (run: BusLine) -> ()) {
+    let baseAPIUrl : String = "http://api.metro.net/agencies/lametro/"
+    func fetchRoutes(respondTo: (run: BusLine) -> ()) {
         var notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserverForName("runFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
-            let runDetails : Dictionary<String, String!> = notification.userInfo! as Dictionary<String, String!>
-            var busLine = BusLine(runName: runDetails["runName"]!, routeNumber: runDetails["routeNumber"]!, runNumber: runDetails["runNumber"]!)
+        notificationCenter.addObserverForName("routeFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
+            let routeDetails : Dictionary<String, String!> = notification.userInfo! as Dictionary<String, String!>
+            var busLine = BusLine(routeName: routeDetails["routeName"]!, routeNumber: routeDetails["routeNumber"]!)
             respondTo(run: busLine)
         });
 
-        var routesURL : String = "http://api.metro.net/agencies/lametro/routes/"
+        var routesURL : String = "\(baseAPIUrl)/routes/"
         Alamofire.request(.GET, routesURL)
             .validate()
             .responseJSON { (request, response, data, error) in
                 if(error != nil) {
                     println(error)
                 } else {
-                    var busRoutes = data!.valueForKey("items") as NSArray
-                    self.createRunsFromRoutes(busRoutes)
-                }
-        }
-    }
-
-    func createRunsFromRoutes(routes: NSArray) {
-        var notificationCenter = NSNotificationCenter.defaultCenter()
-        var runs = [BusLine]()
-        for route in routes {
-            var routeNumber = route.valueForKey("id") as String
-            var routesURL : String = "http://api.metro.net/agencies/lametro/routes/\(routeNumber)/runs/"
-            Alamofire.request(.GET, routesURL)
-                .validate()
-                .responseJSON { (request, response, data, error) in
-                    if(error != nil) {
-                        println(error)
-                    } else {
-                        var fetchedRuns = data!.valueForKey("items") as NSArray
-                        for run in fetchedRuns {
-                            var runName = run.valueForKey("display_name") as String
-                            var runNumber = run.valueForKey("id") as String
-                            var userInfo : Dictionary = [
-                                "routeNumber":routeNumber,
-                                "runNumber":runNumber,
-                                "runName":runName,
-                            ]
-                            var runNotification = NSNotification(name: "runFetched", object: nil, userInfo: userInfo)
-                            notificationCenter.postNotification(runNotification)
-                        }
+                    var fetchedRoutes = data!.valueForKey("items") as NSArray
+                    for route in fetchedRoutes {
+                        var routeNumber = route.valueForKey("id") as String
+                        var routeName = route.valueForKey("display_name") as String
+                        var userInfo : Dictionary = [
+                            "routeNumber":routeNumber,
+                            "routeName":routeName
+                        ]
+                        var runNotification = NSNotification(name: "routeFetched", object: nil, userInfo: userInfo)
+                        notificationCenter.postNotification(runNotification)
                     }
-            }
+                }
         }
     }
 }

@@ -17,8 +17,8 @@ class BusLineTableViewController: UITableViewController, UISearchBarDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        metroAPIService.fetchRuns { (run: BusLine) in
-            self.busLines.append(run)
+        metroAPIService.fetchRoutes { (route: BusLine) in
+            self.busLines.append(route)
             self.tableView.reloadData()
         }
     }
@@ -52,7 +52,7 @@ class BusLineTableViewController: UITableViewController, UISearchBarDelegate, UI
             busLine = self.busLines[indexPath.row]
         }
 
-        cell.textLabel!.text = "\(busLine.routeNumber) - \(busLine.runName)"
+        cell.textLabel!.text = "\(busLine.routeName)"
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
         return cell
@@ -60,7 +60,7 @@ class BusLineTableViewController: UITableViewController, UISearchBarDelegate, UI
 
     func filterBusLinesForSearchText(searchText: String) {
         self.filteredBusLines = self.busLines.filter({(busLine: BusLine) -> Bool in
-            let runNameMatch = busLine.runName.rangeOfString(searchText)
+            let runNameMatch = busLine.routeName.rangeOfString(searchText)
             let routeNumberMatch = busLine.routeNumber.rangeOfString(searchText)
             return (runNameMatch != nil || routeNumberMatch != nil)
         })

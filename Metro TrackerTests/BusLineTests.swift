@@ -21,13 +21,11 @@ class BusLineTests: XCTestCase {
     }
 
     func testCanInitWithName() {
-        let newRunName = "A Great Line"
-        let newRunNumber = "720_05_15"
+        let newRouteName = "A Great Line"
         let newRouteNumber = "720"
-        let busLine = BusLine(runName: newRunName, routeNumber: newRouteNumber, runNumber: newRunNumber)
+        let busLine = BusLine(routeName: newRouteName, routeNumber: newRouteNumber)
 
-        XCTAssertEqual(busLine.runName, newRunName)
-        XCTAssertEqual(busLine.runNumber, newRunNumber)
+        XCTAssertEqual(busLine.routeName, newRouteName)
         XCTAssertEqual(busLine.routeNumber, newRouteNumber)
     }
 }
