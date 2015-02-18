@@ -12,6 +12,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for routes" id="xEV-3g-hlq">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="BvB-Nc-LrG" id="1ox-Nm-7ik"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="2HJ-No-uJ2">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -26,8 +34,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Bus Line Search" id="z2e-cS-m9v"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="bBZ-Da-ZgF" id="Cmc-VQ-v8h"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zxb-5A-8nd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="bBZ-Da-ZgF">
+                    <connections>
+                        <outlet property="delegate" destination="BvB-Nc-LrG" id="fX1-aJ-1Lk"/>
+                        <outlet property="searchBar" destination="xEV-3g-hlq" id="wt5-xw-mp4"/>
+                        <outlet property="searchContentsController" destination="BvB-Nc-LrG" id="l1e-gb-ugv"/>
+                        <outlet property="searchResultsDataSource" destination="BvB-Nc-LrG" id="gYB-rO-sDN"/>
+                        <outlet property="searchResultsDelegate" destination="BvB-Nc-LrG" id="9fy-8o-0ww"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="299" y="377"/>
         </scene>

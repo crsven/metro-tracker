@@ -22,8 +22,12 @@ class MetroAPIService {
         Alamofire.request(.GET, routesURL)
             .validate()
             .responseJSON { (request, response, data, error) in
-                var busRoutes = data!.valueForKey("items") as NSArray
-                self.createRunsFromRoutes(busRoutes)
+                if(error != nil) {
+                    println(error)
+                } else {
+                    var busRoutes = data!.valueForKey("items") as NSArray
+                    self.createRunsFromRoutes(busRoutes)
+                }
         }
     }
 

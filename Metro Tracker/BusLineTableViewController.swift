@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-class BusLineTableViewController: UITableViewController {
+class BusLineTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     var busLines = [BusLine]()
+    var filteredBusLines = [BusLine]()
     let metroAPIService : MetroAPIService = MetroAPIService()
 
     override func viewDidLoad() {
@@ -34,18 +35,47 @@ class BusLineTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.busLines.count
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            return self.filteredBusLines.count
+        } else {
+            return self.busLines.count
+        }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
-        let busLine = self.busLines[indexPath.row]
+        var busLine : BusLine
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            busLine = self.filteredBusLines[indexPath.row]
+        } else {
+            busLine = self.busLines[indexPath.row]
+        }
+
         cell.textLabel!.text = "\(busLine.routeNumber) - \(busLine.runName)"
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
         return cell
     }
+
+    func filterBusLinesForSearchText(searchText: String) {
+        self.filteredBusLines = self.busLines.filter({(busLine: BusLine) -> Bool in
+            let runNameMatch = busLine.runName.rangeOfString(searchText)
+            let routeNumberMatch = busLine.routeNumber.rangeOfString(searchText)
+            return (runNameMatch != nil || routeNumberMatch != nil)
+        })
+    }
+
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterBusLinesForSearchText(searchString)
+        return true
+    }
+
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterBusLinesForSearchText(self.searchDisplayController!.searchBar.text)
+        return true
+    }
+
 
     /*
     // Override to support conditional editing of the table view.
