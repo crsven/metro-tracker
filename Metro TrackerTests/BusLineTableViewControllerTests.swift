@@ -19,6 +19,11 @@ class BusLineTableViewControllerTests: XCTestCase {
         vc = storyboard.instantiateViewControllerWithIdentifier("MetroTrackerStoryboard") as BusLineTableViewController
         vc.loadView()
         vc.viewDidLoad()
+        vc.busLines = [
+            BusLine(runName: "line 1", routeNumber: "1", runNumber: "1-2"),
+            BusLine(runName: "line 2", routeNumber: "1", runNumber: "1-3"),
+            BusLine(runName: "line 3", routeNumber: "1", runNumber: "1-4")
+        ]
     }
 
     override func tearDown() {
@@ -31,6 +36,6 @@ class BusLineTableViewControllerTests: XCTestCase {
     }
 
     func testBusLineCount() {
-        XCTAssertEqual(vc.busLines.count, 6)
+        XCTAssertEqual(vc.busLines.count, 3)
     }
 }

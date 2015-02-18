@@ -9,5 +9,7 @@
 import Foundation
 
 struct BusLine {
-    let name : String
+    let runName : String
+    let routeNumber : String
+    let runNumber : String
 }

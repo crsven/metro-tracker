@@ -6,24 +6,20 @@
 //  Copyright (c) 2015 Chris Svenningsen. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class BusLineTableViewController: UITableViewController {
     var busLines = [BusLine]()
+    let metroAPIService : MetroAPIService = MetroAPIService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.busLines = [
-            BusLine(name: "720 - East"),
-            BusLine(name: "720 - West"),
-            BusLine(name: "704 - East"),
-            BusLine(name: "704 - West"),
-            BusLine(name: "700 - East"),
-            BusLine(name: "700 - West")
-        ]
-
-        self.tableView.reloadData()
+        metroAPIService.fetchRuns { (run: BusLine) in
+            self.busLines.append(run)
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,7 +41,7 @@ class BusLineTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
         let busLine = self.busLines[indexPath.row]
-        cell.textLabel!.text = busLine.name
+        cell.textLabel!.text = "\(busLine.routeNumber) - \(busLine.runName)"
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
         return cell
