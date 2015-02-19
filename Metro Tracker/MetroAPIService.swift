@@ -10,7 +10,8 @@ import Foundation
 import Alamofire
 
 class MetroAPIService {
-    let baseAPIUrl : String = "http://api.metro.net/agencies/lametro/"
+    let baseAPIUrl : String = "http://api.metro.net/agencies/lametro"
+
     func fetchRoutes(respondTo: (run: BusLine) -> ()) {
         var notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserverForName("routeFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
@@ -37,6 +38,34 @@ class MetroAPIService {
                         var runNotification = NSNotification(name: "routeFetched", object: nil, userInfo: userInfo)
                         notificationCenter.postNotification(runNotification)
                     }
+                }
+        }
+    }
+
+    func fetchStopsForRoute(route: String, respondTo: (stops: [BusStop]) -> ()) {
+        var notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserverForName("stopsFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
+            let routeDetails : Dictionary<String, Array<AnyObject>> = notification.userInfo! as Dictionary<String, Array<AnyObject>>
+            var fetchedStops = [BusStop]()
+            for stop in routeDetails["stops"]! {
+                fetchedStops.append(BusStop(routeNumber: route, stopName: stop.valueForKey("display_name") as String))
+            }
+            respondTo(stops: fetchedStops)
+        });
+
+        var routesURL : String = "\(baseAPIUrl)/routes/\(route)/stops/"
+        Alamofire.request(.GET, routesURL)
+            .validate()
+            .responseJSON { (request, response, data, error) in
+                if(error != nil) {
+                    println(error)
+                } else {
+                    var fetchedStops = data!.valueForKey("items") as NSArray
+                    var userInfo: Dictionary = [
+                        "stops": fetchedStops
+                    ]
+                    var stopNotification = NSNotification(name: "stopsFetched", object: nil, userInfo: userInfo)
+                    notificationCenter.postNotification(stopNotification)
                 }
         }
     }

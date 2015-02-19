@@ -18,18 +18,15 @@ class BusStopTableViewController: UITableViewController, UISearchBarDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        metroAPIService.fetchStops { (stop: BusStop) in
-//            self.busStops.append(stop)
-//            self.tableView.reloadData()
-//        }
+        metroAPIService.fetchStopsForRoute(routeNumber, { (stops: [BusStop]) in
+            self.busStops = stops
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -44,7 +41,7 @@ class BusStopTableViewController: UITableViewController, UISearchBarDelegate, UI
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("BusStopCell", forIndexPath: indexPath) as UITableViewCell
 
         var busStop : BusStop
         if tableView == self.searchDisplayController!.searchResultsTableView {
@@ -53,27 +50,26 @@ class BusStopTableViewController: UITableViewController, UISearchBarDelegate, UI
             busStop = self.busStops[indexPath.row]
         }
 
-//        cell.textLabel!.text = "\(busLine.routeName)"
-//        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        cell.textLabel!.text = "\(busStop.stopName)"
+        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
         return cell
     }
 
-    func filterBusLinesForSearchText(searchText: String) {
-//        self.filteredBusStops = self.busStops.filter({(busStop: BusStop) -> Bool in
-//            let runNameMatch = busStop.routeName.rangeOfString(searchText)
-//            let routeNumberMatch = busLine.routeNumber.rangeOfString(searchText)
-//            return (runNameMatch != nil || routeNumberMatch != nil)
-//        })
+    func filterBusStopsForSearchText(searchText: String) {
+        self.filteredBusStops = self.busStops.filter({(busStop: BusStop) -> Bool in
+            let stopNameMatch = busStop.stopName.rangeOfString(searchText)
+            return stopNameMatch != nil
+        })
     }
 
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        self.filterBusLinesForSearchText(searchString)
+        self.filterBusStopsForSearchText(searchString)
         return true
     }
 
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        self.filterBusLinesForSearchText(self.searchDisplayController!.searchBar.text)
+        self.filterBusStopsForSearchText(self.searchDisplayController!.searchBar.text)
         return true
     }
 }
