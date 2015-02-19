@@ -19,7 +19,7 @@ class BusStopTableViewController: UITableViewController, UISearchBarDelegate, UI
         super.viewDidLoad()
 
         metroAPIService.fetchStopsForRoute(routeNumber, { (stops: [BusStop]) in
-            self.busStops = stops
+            self.busStops += stops
             self.tableView.reloadData()
         })
     }
@@ -50,7 +50,7 @@ class BusStopTableViewController: UITableViewController, UISearchBarDelegate, UI
             busStop = self.busStops[indexPath.row]
         }
 
-        cell.textLabel!.text = "\(busStop.stopName)"
+        cell.textLabel!.text = "\(busStop.stopName) - \(busStop.runDirection)"
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
         return cell

@@ -11,5 +11,6 @@ import Foundation
 
 struct BusStop {
     let routeNumber : String
+    let runDirection : String
     let stopName : String
 }
