@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77051A96B2E25DEFADD0C3BC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C0925BFABF74048DB58A2C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B849DCC51A93C4DF00B5EC21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */; };
 		B849DCC81A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B849DCC61A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodeld */; };
-		B849DCCA1A93C4DF00B5EC21 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCC91A93C4DF00B5EC21 /* ViewController.swift */; };
 		B849DCCD1A93C4DF00B5EC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */; };
 		B849DCCF1A93C4DF00B5EC21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCE1A93C4DF00B5EC21 /* Images.xcassets */; };
 		B849DCD21A93C4DF00B5EC21 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B849DCD01A93C4DF00B5EC21 /* LaunchScreen.xib */; };
 		B849DCDE1A93C4DF00B5EC21 /* Metro_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCDD1A93C4DF00B5EC21 /* Metro_TrackerTests.swift */; };
+		B849DCE81A93C5E400B5EC21 /* BusLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE71A93C5E400B5EC21 /* BusLine.swift */; };
+		B849DCEA1A93C69700B5EC21 /* BusLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */; };
+		B849DCEE1A93CFFC00B5EC21 /* BusLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */; };
+		B849DCEF1A93D08400B5EC21 /* BusLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE71A93C5E400B5EC21 /* BusLine.swift */; };
+		B849DCF11A93D36000B5EC21 /* BusLineTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */; };
+		B849DCF21A93D61500B5EC21 /* BusLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */; };
+		B849DCF31A93E62900B5EC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */; };
+		B89FD9191A940D7C00906532 /* MetroAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89FD9181A940D7C00906532 /* MetroAPIService.swift */; };
+		B89FD91A1A940E1400906532 /* MetroAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89FD9181A940D7C00906532 /* MetroAPIService.swift */; };
+		DAB186F13091C832B31C3367 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C0925BFABF74048DB58A2C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +37,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A4AC9FE8F160AEEFEE7BBF61 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A95FAA929888783BB6ACAE05 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B849DCBF1A93C4DF00B5EC21 /* Metro Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Metro Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B849DCC31A93C4DF00B5EC21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B849DCC71A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Metro_Tracker.xcdatamodel; sourceTree = "<group>"; };
-		B849DCC91A93C4DF00B5EC21 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B849DCCC1A93C4DF00B5EC21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B849DCCE1A93C4DF00B5EC21 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B849DCD11A93C4DF00B5EC21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B849DCD71A93C4DF00B5EC21 /* Metro TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Metro TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B849DCDC1A93C4DF00B5EC21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B849DCDD1A93C4DF00B5EC21 /* Metro_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metro_TrackerTests.swift; sourceTree = "<group>"; };
+		B849DCE71A93C5E400B5EC21 /* BusLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLine.swift; sourceTree = "<group>"; };
+		B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTableViewController.swift; sourceTree = "<group>"; };
+		B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTests.swift; sourceTree = "<group>"; };
+		B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTableViewControllerTests.swift; sourceTree = "<group>"; };
+		B89FD9181A940D7C00906532 /* MetroAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetroAPIService.swift; sourceTree = "<group>"; };
+		E1C0925BFABF74048DB58A2C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77051A96B2E25DEFADD0C3BC /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,18 +70,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAB186F13091C832B31C3367 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56272DA4CE5112F92C4F5345 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1C0925BFABF74048DB58A2C /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6A83B194A5B22DB99926E7CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A95FAA929888783BB6ACAE05 /* Pods.debug.xcconfig */,
+				A4AC9FE8F160AEEFEE7BBF61 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B849DCB61A93C4DF00B5EC21 = {
 			isa = PBXGroup;
 			children = (
 				B849DCC11A93C4DF00B5EC21 /* Metro Tracker */,
 				B849DCDA1A93C4DF00B5EC21 /* Metro TrackerTests */,
 				B849DCC01A93C4DF00B5EC21 /* Products */,
+				6A83B194A5B22DB99926E7CD /* Pods */,
+				56272DA4CE5112F92C4F5345 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,8 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */,
-				B849DCC91A93C4DF00B5EC21 /* ViewController.swift */,
 				B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */,
+				B849DCE71A93C5E400B5EC21 /* BusLine.swift */,
+				B89FD9181A940D7C00906532 /* MetroAPIService.swift */,
+				B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */,
 				B849DCCE1A93C4DF00B5EC21 /* Images.xcassets */,
 				B849DCD01A93C4DF00B5EC21 /* LaunchScreen.xib */,
 				B849DCC61A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodeld */,
@@ -102,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				B849DCDD1A93C4DF00B5EC21 /* Metro_TrackerTests.swift */,
+				B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */,
+				B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */,
 				B849DCDB1A93C4DF00B5EC21 /* Supporting Files */,
 			);
 			path = "Metro TrackerTests";
@@ -122,9 +164,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B849DCE11A93C4DF00B5EC21 /* Build configuration list for PBXNativeTarget "Metro Tracker" */;
 			buildPhases = (
+				95AC7CED46A445460001EE4C /* Check Pods Manifest.lock */,
 				B849DCBB1A93C4DF00B5EC21 /* Sources */,
 				B849DCBC1A93C4DF00B5EC21 /* Frameworks */,
 				B849DCBD1A93C4DF00B5EC21 /* Resources */,
+				D437DA38524D6BC638D98410 /* Embed Pods Frameworks */,
+				E36B5EBC9D9BCB5DC6FA27CB /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,9 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B849DCE41A93C4DF00B5EC21 /* Build configuration list for PBXNativeTarget "Metro TrackerTests" */;
 			buildPhases = (
+				64D4F6F5545DDE02529DFF4D /* Check Pods Manifest.lock */,
 				B849DCD31A93C4DF00B5EC21 /* Sources */,
 				B849DCD41A93C4DF00B5EC21 /* Frameworks */,
 				B849DCD51A93C4DF00B5EC21 /* Resources */,
+				4683BBF4E055BFB335AC446A /* Embed Pods Frameworks */,
+				9EC0BAD4F160DD3DF3EBF09F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,18 +253,114 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B849DCF31A93E62900B5EC21 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4683BBF4E055BFB335AC446A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		64D4F6F5545DDE02529DFF4D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		95AC7CED46A445460001EE4C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9EC0BAD4F160DD3DF3EBF09F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D437DA38524D6BC638D98410 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E36B5EBC9D9BCB5DC6FA27CB /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B849DCBB1A93C4DF00B5EC21 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B849DCCA1A93C4DF00B5EC21 /* ViewController.swift in Sources */,
+				B849DCEA1A93C69700B5EC21 /* BusLineTableViewController.swift in Sources */,
 				B849DCC81A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodeld in Sources */,
+				B89FD9191A940D7C00906532 /* MetroAPIService.swift in Sources */,
+				B849DCE81A93C5E400B5EC21 /* BusLine.swift in Sources */,
 				B849DCC51A93C4DF00B5EC21 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +369,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B849DCF11A93D36000B5EC21 /* BusLineTableViewControllerTests.swift in Sources */,
+				B849DCEE1A93CFFC00B5EC21 /* BusLineTests.swift in Sources */,
+				B849DCEF1A93D08400B5EC21 /* BusLine.swift in Sources */,
+				B849DCF21A93D61500B5EC21 /* BusLineTableViewController.swift in Sources */,
+				B89FD91A1A940E1400906532 /* MetroAPIService.swift in Sources */,
 				B849DCDE1A93C4DF00B5EC21 /* Metro_TrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,6 +487,7 @@
 		};
 		B849DCE21A93C4DF00B5EC21 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A95FAA929888783BB6ACAE05 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Metro Tracker/Info.plist";
@@ -348,6 +498,7 @@
 		};
 		B849DCE31A93C4DF00B5EC21 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4AC9FE8F160AEEFEE7BBF61 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Metro Tracker/Info.plist";
@@ -358,6 +509,7 @@
 		};
 		B849DCE51A93C4DF00B5EC21 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A95FAA929888783BB6ACAE05 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -377,6 +529,7 @@
 		};
 		B849DCE61A93C4DF00B5EC21 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4AC9FE8F160AEEFEE7BBF61 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -409,6 +562,7 @@
 				B849DCE31A93C4DF00B5EC21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B849DCE41A93C4DF00B5EC21 /* Build configuration list for PBXNativeTarget "Metro TrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +571,7 @@
 				B849DCE61A93C4DF00B5EC21 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
