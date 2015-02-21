@@ -57,6 +57,7 @@ class MetroAPIService {
                                 busStop.line = line
                                 busStop.runDirection = runDirection
                                 busStop.stopName = stop.valueForKey("display_name") as String
+                                busStop.stopNumber = stop.valueForKey("id") as String
                             }
                             var stopNotification = NSNotification(name: "busStopsFetched", object: nil)
                             self.notificationCenter.postNotification(stopNotification)
@@ -78,6 +79,33 @@ class MetroAPIService {
                     ]
                     var runNotification = NSNotification(name: "runsFetched", object: nil, userInfo: userInfo)
                     self.notificationCenter.postNotification(runNotification)
+                }
+        }
+    }
+
+    func fetchPredictionsFor(busStop: BusStop) {
+        let route = busStop.routeNumber
+        let stopNumber = busStop.stopNumber
+        var predictionsURL : String = "\(baseAPIUrl)/routes/\(route)/stops/\(stopNumber)/predictions"
+
+        Alamofire.request(.GET, predictionsURL)
+            .validate()
+            .responseJSON { (request, response, data, error) in
+                if(error != nil) {
+                    println(error)
+                } else {
+                    var fetchedPredictions = data!.valueForKey("items") as NSArray
+                    var predictionTimes = [Int]()
+                    for prediction in fetchedPredictions {
+                        var predictionMinutes : Int = prediction.valueForKey("minutes") as Int
+                        predictionTimes.append(predictionMinutes)
+                    }
+                    var userInfo: Dictionary = [
+                        "predictions": predictionTimes
+                    ]
+                    var predictionNotification = NSNotification(name: "predictionsFetched", object: nil, userInfo: userInfo)
+                    var notificationCenter = NSNotificationCenter.defaultCenter()
+                    notificationCenter.postNotification(predictionNotification)
                 }
         }
     }

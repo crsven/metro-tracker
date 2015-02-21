@@ -93,6 +93,10 @@ class BusStopTableViewController: UITableViewController, UISearchBarDelegate, UI
         return cell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("scheduleReminder", sender: tableView)
+    }
+
     func filterBusStopsForSearchText(searchText: String) {
         self.filteredBusStops = self.busStops.filter({(busStop: BusStop) -> Bool in
             let stopNameMatch = busStop.stopName.rangeOfString(searchText)
@@ -108,5 +112,22 @@ class BusStopTableViewController: UITableViewController, UISearchBarDelegate, UI
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
         self.filterBusStopsForSearchText(self.searchDisplayController!.searchBar.text)
         return true
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "scheduleReminder" {
+            var busStop : BusStop
+            let senderView = sender as UITableView
+            if senderView == self.searchDisplayController!.searchResultsTableView {
+                var path = self.searchDisplayController!.searchResultsTableView.indexPathForSelectedRow()
+                busStop = self.filteredBusStops[path!.row]
+            } else {
+                var path = self.tableView.indexPathForSelectedRow()
+                busStop = self.busStops[path!.row]
+            }
+
+            var detailController = segue.destinationViewController as ScheduleReminderViewController
+            detailController.busStop = busStop
+        }
     }
 }

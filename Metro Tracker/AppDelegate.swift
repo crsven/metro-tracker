@@ -17,7 +17,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        setupNotificationSettings()
+
         return true
+    }
+
+    func setupNotificationSettings() {
+        let notificationSettings: UIUserNotificationSettings! = UIApplication.sharedApplication().currentUserNotificationSettings()
+
+        if (notificationSettings.types == UIUserNotificationType.None){
+            var caughtBusAction = UIMutableUserNotificationAction()
+            caughtBusAction.identifier = "caughtBus"
+            caughtBusAction.title = "Got A Bus"
+            caughtBusAction.activationMode = UIUserNotificationActivationMode.Background
+            caughtBusAction.destructive = false
+            caughtBusAction.authenticationRequired = false
+
+            let actionsArray = NSArray(objects: caughtBusAction)
+            var busComingCategory = UIMutableUserNotificationCategory()
+            busComingCategory.identifier = "busComingCategory"
+            busComingCategory.setActions(actionsArray, forContext: UIUserNotificationActionContext.Minimal)
+
+            let categoriesForSettings = NSSet(objects: busComingCategory)
+            var notificationTypes: UIUserNotificationType = UIUserNotificationType.Alert
+            let newNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: categoriesForSettings)
+            UIApplication.sharedApplication().registerUserNotificationSettings(newNotificationSettings)
+        }
+    }
+
+    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+
+        if(identifier == "caughtBus") {
+            NSNotificationCenter.defaultCenter().postNotificationName("caughtBusNotification", object: nil)
+        }
+
+        completionHandler()
     }
 
     func applicationWillResignActive(application: UIApplication) {

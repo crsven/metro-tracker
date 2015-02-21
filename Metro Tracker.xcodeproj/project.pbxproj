@@ -28,6 +28,10 @@
 		B8DB1DDD1A955FBA000B9156 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DDC1A955FBA000B9156 /* BusStop.swift */; };
 		B8DB1DDE1A95633E000B9156 /* BusStopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DDA1A955F02000B9156 /* BusStopTableViewController.swift */; };
 		B8DB1DDF1A95636F000B9156 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DDC1A955FBA000B9156 /* BusStop.swift */; };
+		B8DB1DE11A96D77F000B9156 /* ScheduleReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DE01A96D77F000B9156 /* ScheduleReminderViewController.swift */; };
+		B8DB1DE21A96D793000B9156 /* ScheduleReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DE01A96D77F000B9156 /* ScheduleReminderViewController.swift */; };
+		B8DB1DE41A96DF1C000B9156 /* BusWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DE31A96DF1C000B9156 /* BusWatcher.swift */; };
+		B8DB1DE51A96DF4F000B9156 /* BusWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DE31A96DF1C000B9156 /* BusWatcher.swift */; };
 		DAB186F13091C832B31C3367 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C0925BFABF74048DB58A2C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -61,6 +65,8 @@
 		B89FD9181A940D7C00906532 /* MetroAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetroAPIService.swift; sourceTree = "<group>"; };
 		B8DB1DDA1A955F02000B9156 /* BusStopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopTableViewController.swift; sourceTree = "<group>"; };
 		B8DB1DDC1A955FBA000B9156 /* BusStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
+		B8DB1DE01A96D77F000B9156 /* ScheduleReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleReminderViewController.swift; path = "Metro Tracker/ScheduleReminderViewController.swift"; sourceTree = "<group>"; };
+		B8DB1DE31A96DF1C000B9156 /* BusWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BusWatcher.swift; path = "Metro Tracker/BusWatcher.swift"; sourceTree = "<group>"; };
 		E1C0925BFABF74048DB58A2C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,6 +110,8 @@
 		B849DCB61A93C4DF00B5EC21 = {
 			isa = PBXGroup;
 			children = (
+				B8DB1DE01A96D77F000B9156 /* ScheduleReminderViewController.swift */,
+				B8DB1DE31A96DF1C000B9156 /* BusWatcher.swift */,
 				B849DCC11A93C4DF00B5EC21 /* Metro Tracker */,
 				B849DCDA1A93C4DF00B5EC21 /* Metro TrackerTests */,
 				B849DCC01A93C4DF00B5EC21 /* Products */,
@@ -221,6 +229,11 @@
 				TargetAttributes = {
 					B849DCBE1A93C4DF00B5EC21 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					B849DCD61A93C4DF00B5EC21 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -367,8 +380,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B849DCEA1A93C69700B5EC21 /* BusLineTableViewController.swift in Sources */,
+				B8DB1DE11A96D77F000B9156 /* ScheduleReminderViewController.swift in Sources */,
 				B849DCC81A93C4DF00B5EC21 /* Metro_Tracker.xcdatamodeld in Sources */,
 				B89FD9191A940D7C00906532 /* MetroAPIService.swift in Sources */,
+				B8DB1DE41A96DF1C000B9156 /* BusWatcher.swift in Sources */,
 				B8DB1DDD1A955FBA000B9156 /* BusStop.swift in Sources */,
 				B849DCE81A93C5E400B5EC21 /* BusLine.swift in Sources */,
 				B8DB1DDB1A955F02000B9156 /* BusStopTableViewController.swift in Sources */,
@@ -380,6 +395,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8DB1DE21A96D793000B9156 /* ScheduleReminderViewController.swift in Sources */,
+				B8DB1DE51A96DF4F000B9156 /* BusWatcher.swift in Sources */,
 				B8DB1DDF1A95636F000B9156 /* BusStop.swift in Sources */,
 				B849DCF11A93D36000B5EC21 /* BusLineTableViewControllerTests.swift in Sources */,
 				B849DCEE1A93CFFC00B5EC21 /* BusLineTests.swift in Sources */,

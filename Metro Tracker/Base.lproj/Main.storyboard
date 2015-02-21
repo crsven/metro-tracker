@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p3G-8O-IaA">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Bus Line Search-->
@@ -84,6 +85,7 @@
                     <navigationItem key="navigationItem" title="Bus Stop Search" id="kGb-bm-esf" userLabel="Bus Stop Search"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="c4c-W7-Ddl" id="nxR-va-ofm"/>
+                        <segue destination="KOW-8x-EyH" kind="show" identifier="scheduleReminder" id="eFI-1y-F0f"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRD-aJ-pQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,6 +100,54 @@
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="979" y="377"/>
+        </scene>
+        <!--Schedule Reminder-->
+        <scene sceneID="377-q1-Ldi">
+            <objects>
+                <viewController title="Schedule Reminder" id="KOW-8x-EyH" customClass="ScheduleReminderViewController" customModule="Metro_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r5Q-Eq-fQh"/>
+                        <viewControllerLayoutGuide type="bottom" id="XKF-Qy-84b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2rC-zK-9YA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="It will take you this long to get to the stop:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycj-rw-qVb">
+                                <rect key="frame" x="139" y="114" width="322" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-hc-AVm">
+                                <rect key="frame" x="277" y="447" width="46" height="30"/>
+                                <state key="normal" title="Schedule">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reminderScheduled" destination="KOW-8x-EyH" eventType="touchUpInside" id="ycQ-4g-VJ6"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OXH-B3-l4q">
+                                <rect key="frame" x="0.0" y="225" width="600" height="162"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="x6P-hc-AVm" secondAttribute="centerX" id="AEW-tU-vGE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OXH-B3-l4q" secondAttribute="trailing" constant="10" id="Bts-OT-Ses"/>
+                            <constraint firstAttribute="centerX" secondItem="OXH-B3-l4q" secondAttribute="centerX" id="JTY-wJ-Eiu"/>
+                            <constraint firstItem="OXH-B3-l4q" firstAttribute="leading" secondItem="2rC-zK-9YA" secondAttribute="leadingMargin" constant="10" id="gQY-66-OFZ"/>
+                            <constraint firstAttribute="centerX" secondItem="ycj-rw-qVb" secondAttribute="centerX" id="v6K-i7-DAR"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="OXH-B3-l4q" id="wc0-z3-fDX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Onz-FO-c41" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1603" y="377"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fbe-Di-R55">

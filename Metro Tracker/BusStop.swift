@@ -12,5 +12,6 @@ import CoreData
 class BusStop : NSManagedObject {
     @NSManaged var runDirection : String
     @NSManaged var stopName : String
+    @NSManaged var stopNumber : String
     @NSManaged var line : BusLine
 }
