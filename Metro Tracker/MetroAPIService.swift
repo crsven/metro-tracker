@@ -54,10 +54,12 @@ class MetroAPIService {
                             var fetchedStops = data!.valueForKey("items") as NSArray
                             for stop in fetchedStops {
                                 var busStop = NSEntityDescription.insertNewObjectForEntityForName("BusStop", inManagedObjectContext: self.managedObjectContext!) as BusStop
-                                busStop.line = line
-                                busStop.runDirection = runDirection
-                                busStop.stopName = stop.valueForKey("display_name") as String
-                                busStop.stopNumber = stop.valueForKey("id") as String
+                                if(stop.valueForKey("id") != nil) {
+                                    busStop.line = line
+                                    busStop.runDirection = runDirection
+                                    busStop.stopName = stop.valueForKey("display_name") as String
+                                    busStop.stopNumber = stop.valueForKey("id") as String
+                                }
                             }
                             var stopNotification = NSNotification(name: "busStopsFetched", object: nil)
                             self.notificationCenter.postNotification(stopNotification)
@@ -83,10 +85,8 @@ class MetroAPIService {
         }
     }
 
-    func fetchPredictionsFor(busStop: BusStop) {
-        let route = busStop.routeNumber
-        let stopNumber = busStop.stopNumber
-        var predictionsURL : String = "\(baseAPIUrl)/routes/\(route)/stops/\(stopNumber)/predictions"
+    func fetchPredictionsFor(routeNumber: String, stopNumber: String) {
+        var predictionsURL : String = "\(baseAPIUrl)/routes/\(routeNumber)/stops/\(stopNumber)/predictions"
 
         Alamofire.request(.GET, predictionsURL)
             .validate()

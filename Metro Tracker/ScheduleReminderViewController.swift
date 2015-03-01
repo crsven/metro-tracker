@@ -8,9 +8,12 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class ScheduleReminderViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var busStop: BusStop!
+    var activeBusWatcher: BusWatcher!
 
     @IBOutlet var pickerView: UIPickerView!
 
@@ -42,7 +45,15 @@ class ScheduleReminderViewController : UIViewController, UIPickerViewDataSource,
     }
 
     @IBAction func reminderScheduled() {
-        var busWatcher : BusWatcher = BusWatcher(busStop: busStop, warningTime: pickerView.selectedRowInComponent(0))
-        busWatcher.start()
+        let notificationRequest = NSEntityDescription.insertNewObjectForEntityForName("NotificationRequest", inManagedObjectContext: managedObjectContext!) as NotificationRequest
+
+        notificationRequest.stopNumber = busStop.stopNumber
+        notificationRequest.routeNumber = busStop.line.routeNumber
+        notificationRequest.warningTime = pickerView.selectedRowInComponent(0) as Int
+        if(self.activeBusWatcher != nil) {
+            self.activeBusWatcher.stop()
+        }
+        self.activeBusWatcher = BusWatcher(notificationRequest: notificationRequest)
+        self.activeBusWatcher.start()
     }
 }

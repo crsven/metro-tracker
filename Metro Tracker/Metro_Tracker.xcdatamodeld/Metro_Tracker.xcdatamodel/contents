@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C1510" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="BusLine" representedClassName="Metro_Tracker.BusLine" syncable="YES">
         <attribute name="routeName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="routeNumber" optional="YES" attributeType="String" syncable="YES"/>
@@ -8,10 +8,17 @@
     <entity name="BusStop" representedClassName="Metro_Tracker.BusStop" syncable="YES">
         <attribute name="runDirection" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="stopName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stopNumber" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="line" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BusLine" inverseName="stops" inverseEntity="BusLine" syncable="YES"/>
+    </entity>
+    <entity name="NotificationRequest" representedClassName="Metro_Tracker.NotificationRequest" syncable="YES">
+        <attribute name="routeNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stopNumber" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="warningTime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
         <element name="BusLine" positionX="-54" positionY="-9" width="128" height="30"/>
-        <element name="BusStop" positionX="-36" positionY="0" width="128" height="30"/>
+        <element name="BusStop" positionX="-36" positionY="0" width="128" height="105"/>
+        <element name="NotificationRequest" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>

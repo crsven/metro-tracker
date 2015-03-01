@@ -11,47 +11,59 @@ import UIKit
 
 class BusWatcher : NSObject {
     let metroAPI: MetroAPIService = MetroAPIService()
-    var busStop : BusStop
-    var warningTime : Int
+    var notificationRequest : NotificationRequest
+    var predictionObserver : NSObjectProtocol?
     var timer : NSTimer = NSTimer()
 
-    init(busStop: BusStop, warningTime: Int) {
-        self.busStop = busStop
-        self.warningTime = warningTime
+    init(notificationRequest: NotificationRequest) {
+        self.notificationRequest = notificationRequest
     }
 
     func start() {
         var notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "stop", name: "caughtBusNotification", object: nil)
 
-        notificationCenter.addObserverForName("predictionsFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
+        self.predictionObserver = notificationCenter.addObserverForName("predictionsFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
             var predictionDetails : Dictionary<String, Array<Int>> = notification.userInfo! as Dictionary<String, Array<Int>>
             var busesInWindow = [Int]()
-            for prediction in predictionDetails["predictions"]! {
-                if(prediction <= self.warningTime) {
+            for var index=0; index < predictionDetails["predictions"]!.count; ++index {
+                var prediction = predictionDetails["predictions"]![index]
+                if(prediction <= self.notificationRequest.warningTime) {
                     busesInWindow.append(prediction)
                 }
             }
             if busesInWindow.count > 0 {
-                self.notifyOfBuses(busesInWindow)
+                self.notifyOfBuses(&busesInWindow)
             }
             println(busesInWindow)
+            println(predictionDetails["predictions"])
+            let laterPredictions = predictionDetails["predictions"]!.filter( { (prediction: Int) -> Bool in
+                if(contains(busesInWindow, prediction)) {
+                    return false
+                } else {
+                    return true
+                }
+            })
+            println(laterPredictions)
+            if(laterPredictions.count > 0) {
+                self.scheduleNotifications(laterPredictions)
+            }
         })
 
-        NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "checkPredictions", userInfo: nil, repeats: false);
-        timer = NSTimer.scheduledTimerWithTimeInterval(60, target: self, selector: "checkPredictions", userInfo: nil, repeats: true);
+        checkPredictions()
     }
 
     func stop() {
-        timer.invalidate()
+        var notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.removeObserver(self.predictionObserver!)
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
     }
 
     func checkPredictions() {
-        println("checking predictions")
-        metroAPI.fetchPredictionsFor(busStop)
+        metroAPI.fetchPredictionsFor(notificationRequest.routeNumber, stopNumber: notificationRequest.stopNumber)
     }
 
-    func notifyOfBuses(buses: [Int]) {
+    func notifyOfBuses(inout buses: [Int]) {
         var localNotification = UILocalNotification()
         localNotification.fireDate = nil
 
@@ -60,7 +72,8 @@ class BusWatcher : NSObject {
             alertBody += "es"
         }
         alertBody += " coming in \(buses.first!)"
-        for bus in buses {
+        let busCount = buses.count
+        for bus in buses[1..<busCount] {
             alertBody += ", \(bus)"
         }
         alertBody += " minutes"
@@ -69,5 +82,27 @@ class BusWatcher : NSObject {
         localNotification.alertAction = "View app"
         localNotification.category = "busComingCategory"
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+    }
+
+    func scheduleNotifications(times: [Int]) {
+        for time in times {
+            var localNotification = UILocalNotification()
+            var timeToNotify : Double = Double(time - self.notificationRequest.warningTime)
+            var interval = NSTimeInterval(timeToNotify * 60)
+            localNotification.fireDate = NSDate(timeIntervalSinceNow: interval)
+
+            var alertBody = "Bus"
+            alertBody += " coming in \(self.notificationRequest.warningTime) minutes"
+
+            if(time == times.last) {
+                localNotification.category = "finalBusComingCategory"
+                alertBody += ". Select \"Keep Watching\" to continue tracking this stop."
+            } else {
+                localNotification.category = "busComingCategory"
+            }
+            localNotification.alertBody = alertBody
+            localNotification.alertAction = "View app"
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        }
     }
 }

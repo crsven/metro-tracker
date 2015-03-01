@@ -23,7 +23,9 @@
 		B849DCF31A93E62900B5EC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */; };
 		B89FD9191A940D7C00906532 /* MetroAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89FD9181A940D7C00906532 /* MetroAPIService.swift */; };
 		B89FD91A1A940E1400906532 /* MetroAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89FD9181A940D7C00906532 /* MetroAPIService.swift */; };
-		B8C6B0041AA3B28000D7A3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */; };
+		B8C6B0001AA034E100D7A3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */; };
+		B8C6B0021AA0369E00D7A3A3 /* NotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6B0011AA0369E00D7A3A3 /* NotificationRequest.swift */; };
+		B8C6B0031AA0369E00D7A3A3 /* NotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C6B0011AA0369E00D7A3A3 /* NotificationRequest.swift */; };
 		B8DB1DDB1A955F02000B9156 /* BusStopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DDA1A955F02000B9156 /* BusStopTableViewController.swift */; };
 		B8DB1DDD1A955FBA000B9156 /* BusStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DDC1A955FBA000B9156 /* BusStop.swift */; };
 		B8DB1DDE1A95633E000B9156 /* BusStopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DDA1A955F02000B9156 /* BusStopTableViewController.swift */; };
@@ -63,6 +65,7 @@
 		B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTests.swift; sourceTree = "<group>"; };
 		B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTableViewControllerTests.swift; sourceTree = "<group>"; };
 		B89FD9181A940D7C00906532 /* MetroAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetroAPIService.swift; sourceTree = "<group>"; };
+		B8C6B0011AA0369E00D7A3A3 /* NotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRequest.swift; sourceTree = "<group>"; };
 		B8DB1DDA1A955F02000B9156 /* BusStopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopTableViewController.swift; sourceTree = "<group>"; };
 		B8DB1DDC1A955FBA000B9156 /* BusStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
 		B8DB1DE01A96D77F000B9156 /* ScheduleReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleReminderViewController.swift; path = "Metro Tracker/ScheduleReminderViewController.swift"; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */,
+				B8C6B0011AA0369E00D7A3A3 /* NotificationRequest.swift */,
 				B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */,
 				B849DCE71A93C5E400B5EC21 /* BusLine.swift */,
 				B89FD9181A940D7C00906532 /* MetroAPIService.swift */,
@@ -387,6 +391,7 @@
 				B8DB1DDD1A955FBA000B9156 /* BusStop.swift in Sources */,
 				B849DCE81A93C5E400B5EC21 /* BusLine.swift in Sources */,
 				B8DB1DDB1A955F02000B9156 /* BusStopTableViewController.swift in Sources */,
+				B8C6B0021AA0369E00D7A3A3 /* NotificationRequest.swift in Sources */,
 				B849DCC51A93C4DF00B5EC21 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C6B0001AA034E100D7A3A3 /* AppDelegate.swift in Sources */,
 				B8DB1DE21A96D793000B9156 /* ScheduleReminderViewController.swift in Sources */,
 				B8DB1DE51A96DF4F000B9156 /* BusWatcher.swift in Sources */,
 				B8DB1DDF1A95636F000B9156 /* BusStop.swift in Sources */,
@@ -403,6 +409,7 @@
 				B8C6B0041AA3B28000D7A3A3 /* AppDelegate.swift in Sources */,
 				B849DCEF1A93D08400B5EC21 /* BusLine.swift in Sources */,
 				B849DCF21A93D61500B5EC21 /* BusLineTableViewController.swift in Sources */,
+				B8C6B0031AA0369E00D7A3A3 /* NotificationRequest.swift in Sources */,
 				B89FD91A1A940E1400906532 /* MetroAPIService.swift in Sources */,
 				B849DCDE1A93C4DF00B5EC21 /* Metro_TrackerTests.swift in Sources */,
 				B8DB1DDE1A95633E000B9156 /* BusStopTableViewController.swift in Sources */,
