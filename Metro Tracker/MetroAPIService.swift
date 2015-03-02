@@ -8,18 +8,14 @@
 
 import Foundation
 import Alamofire
+import CoreData
 
 class MetroAPIService {
     let baseAPIUrl : String = "http://api.metro.net/agencies/lametro"
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    let notificationCenter = NSNotificationCenter.defaultCenter()
 
-    func fetchRoutes(respondTo: (run: BusLine) -> ()) {
-        var notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserverForName("routeFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
-            let routeDetails : Dictionary<String, String!> = notification.userInfo! as Dictionary<String, String!>
-            var busLine = BusLine(routeName: routeDetails["routeName"]!, routeNumber: routeDetails["routeNumber"]!)
-            respondTo(run: busLine)
-        });
-
+    func fetchBusLines() {
         var routesURL : String = "\(baseAPIUrl)/routes/"
         Alamofire.request(.GET, routesURL)
             .validate()
@@ -31,19 +27,18 @@ class MetroAPIService {
                     for route in fetchedRoutes {
                         var routeNumber = route.valueForKey("id") as String
                         var routeName = route.valueForKey("display_name") as String
-                        var userInfo : Dictionary = [
-                            "routeNumber":routeNumber,
-                            "routeName":routeName
-                        ]
-                        var runNotification = NSNotification(name: "routeFetched", object: nil, userInfo: userInfo)
-                        notificationCenter.postNotification(runNotification)
+                        let busLine = NSEntityDescription.insertNewObjectForEntityForName("BusLine", inManagedObjectContext: self.managedObjectContext!) as BusLine
+                        busLine.routeNumber = routeNumber
+                        busLine.routeName = routeName
+
+                        var runNotification = NSNotification(name: "busLinesFetched", object: nil)
+                        self.notificationCenter.postNotification(runNotification)
                     }
                 }
         }
     }
 
     func fetchStopsForRoute(route: String, respondTo: (stops: [BusStop]) -> ()) {
-        var notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserverForName("runsFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
             let runDetails : Dictionary<String, Array<AnyObject>> = notification.userInfo! as Dictionary<String, Array<AnyObject>>
             for run in runDetails["runs"]! {
@@ -62,7 +57,7 @@ class MetroAPIService {
                                 "directions": [runDirection]
                             ]
                             var stopNotification = NSNotification(name: "stopsFetched", object: nil, userInfo: userInfo)
-                            notificationCenter.postNotification(stopNotification)
+                            self.notificationCenter.postNotification(stopNotification)
                         }
                 }
             }
@@ -80,7 +75,7 @@ class MetroAPIService {
                         "runs": fetchedRuns
                     ]
                     var runNotification = NSNotification(name: "runsFetched", object: nil, userInfo: userInfo)
-                    notificationCenter.postNotification(runNotification)
+                    self.notificationCenter.postNotification(runNotification)
                 }
         }
 
