@@ -8,17 +8,34 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class BusLineTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     var busLines = [BusLine]()
     var filteredBusLines = [BusLine]()
     let metroAPIService : MetroAPIService = MetroAPIService()
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    let notificationCenter = NSNotificationCenter.defaultCenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        metroAPIService.fetchRoutes { (route: BusLine) in
-            self.busLines.append(route)
+        notificationCenter.addObserverForName("busLinesFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
+            self.loadLines()
+        });
+
+        self.loadLines()
+
+        if self.busLines.count == 0 {
+            metroAPIService.fetchBusLines()
+        }
+
+    }
+
+    func loadLines() {
+        let fetchRequest = NSFetchRequest(entityName: "BusLine")
+        if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [BusLine] {
+            self.busLines = fetchResults
             self.tableView.reloadData()
         }
     }
