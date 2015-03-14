@@ -38,13 +38,13 @@ class MetroAPIService {
         }
     }
 
-    func fetchStopsForRoute(route: String, respondTo: (stops: [BusStop]) -> ()) {
+    func fetchStopsForRoute(line: BusLine) {
         notificationCenter.addObserverForName("runsFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
             let runDetails : Dictionary<String, Array<AnyObject>> = notification.userInfo! as Dictionary<String, Array<AnyObject>>
             for run in runDetails["runs"]! {
                 let runName : String = run.valueForKey("route_id") as String
                 let runDirection : String = run.valueForKey("direction_name") as String
-                var stopsURL : String = "\(self.baseAPIUrl)/routes/\(route)/runs/\(runName)/stops/"
+                var stopsURL : String = "\(self.baseAPIUrl)/routes/\(line.routeNumber)/runs/\(runName)/stops/"
                 Alamofire.request(.GET, stopsURL)
                     .validate()
                     .responseJSON { (request, response, data, error) in
@@ -52,18 +52,20 @@ class MetroAPIService {
                             println(error)
                         } else {
                             var fetchedStops = data!.valueForKey("items") as NSArray
-                            var userInfo: Dictionary = [
-                                "stops": fetchedStops,
-                                "directions": [runDirection]
-                            ]
-                            var stopNotification = NSNotification(name: "stopsFetched", object: nil, userInfo: userInfo)
+                            for stop in fetchedStops {
+                                var busStop = NSEntityDescription.insertNewObjectForEntityForName("BusStop", inManagedObjectContext: self.managedObjectContext!) as BusStop
+                                busStop.line = line
+                                busStop.runDirection = runDirection
+                                busStop.stopName = stop.valueForKey("display_name") as String
+                            }
+                            var stopNotification = NSNotification(name: "busStopsFetched", object: nil)
                             self.notificationCenter.postNotification(stopNotification)
                         }
                 }
             }
         })
 
-        var runsURL : String = "\(baseAPIUrl)/routes/\(route)/runs/"
+        var runsURL : String = "\(baseAPIUrl)/routes/\(line.routeNumber)/runs/"
         Alamofire.request(.GET, runsURL)
             .validate()
             .responseJSON { (request, response, data, error) in
@@ -78,18 +80,5 @@ class MetroAPIService {
                     self.notificationCenter.postNotification(runNotification)
                 }
         }
-
-        notificationCenter.addObserverForName("stopsFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
-            var routeDetails : Dictionary<String, Array<AnyObject>> = notification.userInfo! as Dictionary<String, Array<AnyObject>>
-            var fetchedStops = [BusStop]()
-            var runDirection : String = routeDetails["directions"]?.first as String
-            for stop in routeDetails["stops"]! {
-                let displayName : String = stop.valueForKey("display_name") as String
-                let newStop : BusStop = BusStop(routeNumber: route, runDirection: runDirection, stopName: displayName)
-                fetchedStops.append(newStop)
-            }
-            respondTo(stops: fetchedStops)
-        })
-
     }
 }

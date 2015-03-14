@@ -7,10 +7,10 @@
 //
 
 import Foundation
+import CoreData
 
-
-struct BusStop {
-    let routeNumber : String
-    let runDirection : String
-    let stopName : String
+class BusStop : NSManagedObject {
+    @NSManaged var runDirection : String
+    @NSManaged var stopName : String
+    @NSManaged var line : BusLine
 }

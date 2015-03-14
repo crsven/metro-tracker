@@ -8,20 +8,57 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class BusStopTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     var routeNumber: String = ""
+    var busLine : BusLine?
     var busStops = [BusStop]()
     var filteredBusStops = [BusStop]()
     let metroAPIService : MetroAPIService = MetroAPIService()
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
+    let notificationCenter = NSNotificationCenter.defaultCenter()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
 
-        metroAPIService.fetchStopsForRoute(routeNumber, { (stops: [BusStop]) in
-            self.busStops += stops
-            self.tableView.reloadData()
-        })
+        self.loadData()
+    }
+
+    func loadData() {
+        self.loadBusLine()
+
+        notificationCenter.addObserverForName("busStopsFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
+            self.loadBusStops()
+        });
+    }
+
+    func loadBusLine() {
+        if(busLine == nil || busLine?.routeNumber != routeNumber) {
+            let fetchRequest = NSFetchRequest(entityName: "BusLine")
+            let predicate = NSPredicate(format: "routeNumber == %@", routeNumber)
+            fetchRequest.predicate = predicate
+            if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [BusLine] {
+                self.busLine = fetchResults.first! as BusLine
+                self.loadBusStops()
+            }
+        } else {
+            self.loadBusStops()
+        }
+    }
+
+    func loadBusStops() {
+        let fetchRequest = NSFetchRequest(entityName: "BusStop")
+        let predicate = NSPredicate(format: "line == %@", busLine!)
+        fetchRequest.predicate = predicate
+        if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [BusStop] {
+            if fetchResults.count == 0 {
+                metroAPIService.fetchStopsForRoute(busLine!)
+            } else {
+                self.busStops = fetchResults
+                self.tableView.reloadData()
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

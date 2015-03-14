@@ -12,4 +12,5 @@ import CoreData
 class BusLine: NSManagedObject {
     @NSManaged var routeName : String
     @NSManaged var routeNumber : String
+    @NSManaged var stops : NSSet
 }
