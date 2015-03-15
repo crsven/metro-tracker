@@ -63,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if(identifier == "caughtBus") {
             NSNotificationCenter.defaultCenter().postNotificationName("caughtBusNotification", object: nil)
+        } else if(identifier == "refreshWatcher") {
+            NSNotificationCenter.defaultCenter().postNotificationName("refreshWatcherNotification", object: nil)
         }
 
         completionHandler()

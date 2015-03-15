@@ -11,6 +11,7 @@ import UIKit
 
 class BusWatcher : NSObject {
     let metroAPI: MetroAPIService = MetroAPIService()
+    var notificationCenter = NSNotificationCenter.defaultCenter()
     var notificationRequest : NotificationRequest
     var predictionObserver : NSObjectProtocol?
     var timer : NSTimer = NSTimer()
@@ -20,46 +21,49 @@ class BusWatcher : NSObject {
     }
 
     func start() {
-        var notificationCenter = NSNotificationCenter.defaultCenter()
         notificationCenter.addObserver(self, selector: "stop", name: "caughtBusNotification", object: nil)
 
-        self.predictionObserver = notificationCenter.addObserverForName("predictionsFetched", object: nil, queue: nil, usingBlock: { (NSNotification notification) in
-            var predictionDetails : Dictionary<String, Array<Int>> = notification.userInfo! as Dictionary<String, Array<Int>>
-            var busesInWindow = [Int]()
-            for var index=0; index < predictionDetails["predictions"]!.count; ++index {
-                var prediction = predictionDetails["predictions"]![index]
-                if(prediction <= self.notificationRequest.warningTime) {
-                    busesInWindow.append(prediction)
-                }
-            }
-            if busesInWindow.count > 0 {
-                self.notifyOfBuses(&busesInWindow)
-            }
-            println(busesInWindow)
-            println(predictionDetails["predictions"])
-            let laterPredictions = predictionDetails["predictions"]!.filter( { (prediction: Int) -> Bool in
-                if(contains(busesInWindow, prediction)) {
-                    return false
-                } else {
-                    return true
-                }
-            })
-            println(laterPredictions)
-            if(laterPredictions.count > 0) {
-                self.scheduleNotifications(laterPredictions)
-            }
-        })
+        notificationCenter.addObserver(self, selector: "checkPredictions", name: "refreshWatcherNotification", object: nil)
+
+        notificationCenter.addObserver(self, selector: "createNotifications:", name: "predictionsFetched", object: nil)
 
         checkPredictions()
     }
 
+    func createNotifications(notification: NSNotification) {
+        var predictionDetails : Dictionary<String, Array<Int>> = notification.userInfo! as Dictionary<String, Array<Int>>
+        var busesInWindow = [Int]()
+        for var index=0; index < predictionDetails["predictions"]!.count; ++index {
+            var prediction = predictionDetails["predictions"]![index]
+            if(prediction <= self.notificationRequest.warningTime) {
+                busesInWindow.append(prediction)
+            }
+        }
+        if busesInWindow.count > 0 {
+            self.notifyOfBuses(&busesInWindow)
+        }
+        println(busesInWindow)
+        println(predictionDetails["predictions"])
+        let laterPredictions = predictionDetails["predictions"]!.filter( { (prediction: Int) -> Bool in
+            if(contains(busesInWindow, prediction)) {
+                return false
+            } else {
+                return true
+            }
+        })
+        println(laterPredictions)
+        if(laterPredictions.count > 0) {
+            self.scheduleNotifications(laterPredictions)
+        }
+    }
+
     func stop() {
-        var notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.removeObserver(self.predictionObserver!)
+        notificationCenter.removeObserver(self)
         UIApplication.sharedApplication().cancelAllLocalNotifications()
     }
 
     func checkPredictions() {
+        println("checking predictions")
         metroAPI.fetchPredictionsFor(notificationRequest.routeNumber, stopNumber: notificationRequest.stopNumber)
     }
 
