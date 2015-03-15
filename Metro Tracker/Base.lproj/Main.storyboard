@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p3G-8O-IaA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="p3G-8O-IaA">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -113,14 +113,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="It will take you this long to get to the stop:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycj-rw-qVb">
-                                <rect key="frame" x="139" y="114" width="322" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How long will it take you to get to the stop?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycj-rw-qVb">
+                                <rect key="frame" x="139" y="114" width="322" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OXH-B3-l4q">
+                                <rect key="frame" x="0.0" y="225" width="600" height="162"/>
+                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6P-hc-AVm">
-                                <rect key="frame" x="277" y="447" width="46" height="30"/>
+                                <rect key="frame" x="248" y="447" width="104" height="30"/>
                                 <state key="normal" title="Schedule">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -128,26 +131,109 @@
                                     <action selector="reminderScheduled" destination="KOW-8x-EyH" eventType="touchUpInside" id="ycQ-4g-VJ6"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OXH-B3-l4q">
-                                <rect key="frame" x="0.0" y="225" width="600" height="162"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="x6P-hc-AVm" secondAttribute="centerX" id="AEW-tU-vGE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OXH-B3-l4q" secondAttribute="trailing" constant="10" id="Bts-OT-Ses"/>
                             <constraint firstAttribute="centerX" secondItem="OXH-B3-l4q" secondAttribute="centerX" id="JTY-wJ-Eiu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ycj-rw-qVb" secondAttribute="trailing" constant="25" id="Q4F-M8-qRC"/>
+                            <constraint firstItem="ycj-rw-qVb" firstAttribute="top" secondItem="r5Q-Eq-fQh" secondAttribute="bottom" constant="50" id="aCe-e6-Bsw"/>
                             <constraint firstItem="OXH-B3-l4q" firstAttribute="leading" secondItem="2rC-zK-9YA" secondAttribute="leadingMargin" constant="10" id="gQY-66-OFZ"/>
+                            <constraint firstItem="ycj-rw-qVb" firstAttribute="leading" secondItem="2rC-zK-9YA" secondAttribute="leadingMargin" constant="25" id="oWj-vO-A0Z"/>
                             <constraint firstAttribute="centerX" secondItem="ycj-rw-qVb" secondAttribute="centerX" id="v6K-i7-DAR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="pickerView" destination="OXH-B3-l4q" id="wc0-z3-fDX"/>
+                        <segue destination="ZRz-3q-Wcl" kind="show" identifier="showNotificationRequest" id="rjs-yl-2UJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Onz-FO-c41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1603" y="377"/>
+        </scene>
+        <!--Notification Request View Controller-->
+        <scene sceneID="KDR-bs-qUa">
+            <objects>
+                <viewController id="ZRz-3q-Wcl" customClass="NotificationRequestViewController" customModule="Metro_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3pv-jb-QpM"/>
+                        <viewControllerLayoutGuide type="bottom" id="dwG-9L-uEV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ugF-O4-ott" customClass="I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Currently watching:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kq-ed-6VS">
+                                <rect key="frame" x="206" y="126" width="189" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Upcoming buses:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1y-CR-GU0">
+                                <rect key="frame" x="233" y="336" width="135" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Bus List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTY-NY-J9W">
+                                <rect key="frame" x="269" y="400" width="62" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Bus Line:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uit-V3-pl9">
+                                <rect key="frame" x="186" y="225" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Bus Stop:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7p-sJ-aH3">
+                                <rect key="frame" x="186" y="271" width="76" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Bus Line Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ia-Yk-BPd">
+                                <rect key="frame" x="297" y="225" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Bus Stop Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7H0-7V-qoT">
+                                <rect key="frame" x="292" y="271" width="122" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6kq-ed-6VS" firstAttribute="leading" secondItem="ugF-O4-ott" secondAttribute="leadingMargin" constant="25" id="0UB-8m-KHI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O1y-CR-GU0" secondAttribute="trailing" constant="50" id="6Z7-iT-xvl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7H0-7V-qoT" secondAttribute="trailing" constant="50" id="ALY-JW-Th3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4ia-Yk-BPd" secondAttribute="trailing" constant="50" id="Gsy-4a-EwR"/>
+                            <constraint firstItem="G7p-sJ-aH3" firstAttribute="leading" secondItem="ugF-O4-ott" secondAttribute="leadingMargin" constant="50" id="J9b-Ns-afd"/>
+                            <constraint firstItem="Uit-V3-pl9" firstAttribute="leading" secondItem="ugF-O4-ott" secondAttribute="leadingMargin" constant="50" id="Nao-ny-hsS"/>
+                            <constraint firstItem="O1y-CR-GU0" firstAttribute="leading" secondItem="ugF-O4-ott" secondAttribute="leadingMargin" constant="50" id="dRl-eR-dBC"/>
+                            <constraint firstItem="7H0-7V-qoT" firstAttribute="leading" secondItem="G7p-sJ-aH3" secondAttribute="trailing" constant="50" id="gEx-tB-pb6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6kq-ed-6VS" secondAttribute="trailing" constant="25" id="jg3-N1-x5s"/>
+                            <constraint firstItem="6kq-ed-6VS" firstAttribute="top" secondItem="3pv-jb-QpM" secondAttribute="bottom" constant="50" id="qqm-Lb-gzh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hTY-NY-J9W" secondAttribute="trailing" constant="20" id="sPP-fM-PAq"/>
+                            <constraint firstItem="4ia-Yk-BPd" firstAttribute="leading" secondItem="Uit-V3-pl9" secondAttribute="trailing" constant="50" id="tb1-j8-Top"/>
+                            <constraint firstItem="hTY-NY-J9W" firstAttribute="leading" secondItem="ugF-O4-ott" secondAttribute="leadingMargin" constant="20" id="yiX-ZE-4TG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="busLineName" destination="4ia-Yk-BPd" id="6pG-Ti-YIa"/>
+                        <outlet property="busPredictionList" destination="hTY-NY-J9W" id="zqc-DN-3M7"/>
+                        <outlet property="busStopName" destination="7H0-7V-qoT" id="s5N-We-bu3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="er6-xi-RSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2248" y="377"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fbe-Di-R55">

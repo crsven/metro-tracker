@@ -13,7 +13,7 @@ import CoreData
 class ScheduleReminderViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as AppDelegate).managedObjectContext
     var busStop: BusStop!
-    var activeBusWatcher: BusWatcher!
+    var notificationRequest: NotificationRequest?
 
     @IBOutlet var pickerView: UIPickerView!
 
@@ -45,15 +45,18 @@ class ScheduleReminderViewController : UIViewController, UIPickerViewDataSource,
     }
 
     @IBAction func reminderScheduled() {
-        let notificationRequest = NSEntityDescription.insertNewObjectForEntityForName("NotificationRequest", inManagedObjectContext: managedObjectContext!) as NotificationRequest
+        self.notificationRequest = (NSEntityDescription.insertNewObjectForEntityForName("NotificationRequest", inManagedObjectContext: managedObjectContext!) as NotificationRequest)
 
-        notificationRequest.stopNumber = busStop.stopNumber
-        notificationRequest.routeNumber = busStop.line.routeNumber
-        notificationRequest.warningTime = pickerView.selectedRowInComponent(0) as Int
-        if(self.activeBusWatcher != nil) {
-            self.activeBusWatcher.stop()
+        self.notificationRequest!.stopNumber = busStop.stopNumber
+        self.notificationRequest!.routeNumber = busStop.line.routeNumber
+        self.notificationRequest!.warningTime = pickerView.selectedRowInComponent(0) as Int
+        self.performSegueWithIdentifier("showNotificationRequest", sender: self)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "showNotificationRequest" {
+            var reminderController = segue.destinationViewController as NotificationRequestViewController
+            reminderController.notificationRequest = self.notificationRequest!
         }
-        self.activeBusWatcher = BusWatcher(notificationRequest: notificationRequest)
-        self.activeBusWatcher.start()
     }
 }

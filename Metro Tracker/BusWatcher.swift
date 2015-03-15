@@ -11,7 +11,7 @@ import UIKit
 
 class BusWatcher : NSObject {
     let metroAPI: MetroAPIService = MetroAPIService()
-    var notificationCenter = NSNotificationCenter.defaultCenter()
+    let notificationCenter = NSNotificationCenter.defaultCenter()
     var notificationRequest : NotificationRequest
     var predictionObserver : NSObjectProtocol?
     var timer : NSTimer = NSTimer()
@@ -55,6 +55,8 @@ class BusWatcher : NSObject {
         if(laterPredictions.count > 0) {
             self.scheduleNotifications(laterPredictions)
         }
+        var busWatcherUpdatedNotification = NSNotification(name: "busWatcherUpdated", object: self, userInfo: predictionDetails)
+        notificationCenter.postNotification(busWatcherUpdatedNotification)
     }
 
     func stop() {

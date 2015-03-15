@@ -17,8 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let interval = NSTimeInterval(60.0)
-        application.setMinimumBackgroundFetchInterval(interval)
         setupNotificationSettings()
 
         return true
@@ -68,18 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         completionHandler()
-    }
-
-    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
-        let fetchRequest = NSFetchRequest(entityName: "NotificationRequest")
-        if let fetchResults = managedObjectContext?.executeFetchRequest(fetchRequest, error: nil) as? [NotificationRequest] {
-            let notificationRequest = fetchResults.first!
-            let busWatcher = BusWatcher(notificationRequest: notificationRequest)
-            busWatcher.start()
-            completionHandler(UIBackgroundFetchResult.NewData)
-        } else {
-            completionHandler(UIBackgroundFetchResult.NoData)
-        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
