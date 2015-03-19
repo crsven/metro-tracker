@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2290F8F303B740C5B846F2B4 /* Pods_Metro_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15949B83F3793DE72FB2D8C0 /* Pods_Metro_Tracker.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		77051A96B2E25DEFADD0C3BC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C0925BFABF74048DB58A2C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8186DA72B2FE18C8CA70340B /* Pods_Metro_TrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD2A5B7334C7537366AD7A0 /* Pods_Metro_TrackerTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B8169E3C1AB61D5F007BCFFF /* NotificationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8169E3B1AB61D5F007BCFFF /* NotificationRequestViewController.swift */; };
 		B8169E3D1AB61D5F007BCFFF /* NotificationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8169E3B1AB61D5F007BCFFF /* NotificationRequestViewController.swift */; };
 		B849DCC51A93C4DF00B5EC21 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCC41A93C4DF00B5EC21 /* AppDelegate.swift */; };
@@ -15,12 +17,9 @@
 		B849DCCD1A93C4DF00B5EC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */; };
 		B849DCCF1A93C4DF00B5EC21 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCE1A93C4DF00B5EC21 /* Images.xcassets */; };
 		B849DCD21A93C4DF00B5EC21 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B849DCD01A93C4DF00B5EC21 /* LaunchScreen.xib */; };
-		B849DCDE1A93C4DF00B5EC21 /* Metro_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCDD1A93C4DF00B5EC21 /* Metro_TrackerTests.swift */; };
 		B849DCE81A93C5E400B5EC21 /* BusLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE71A93C5E400B5EC21 /* BusLine.swift */; };
 		B849DCEA1A93C69700B5EC21 /* BusLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */; };
-		B849DCEE1A93CFFC00B5EC21 /* BusLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */; };
 		B849DCEF1A93D08400B5EC21 /* BusLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE71A93C5E400B5EC21 /* BusLine.swift */; };
-		B849DCF11A93D36000B5EC21 /* BusLineTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */; };
 		B849DCF21A93D61500B5EC21 /* BusLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */; };
 		B849DCF31A93E62900B5EC21 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B849DCCB1A93C4DF00B5EC21 /* Main.storyboard */; };
 		B89FD9191A940D7C00906532 /* MetroAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89FD9181A940D7C00906532 /* MetroAPIService.swift */; };
@@ -36,6 +35,8 @@
 		B8DB1DE21A96D793000B9156 /* ScheduleReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DE01A96D77F000B9156 /* ScheduleReminderViewController.swift */; };
 		B8DB1DE41A96DF1C000B9156 /* BusWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DE31A96DF1C000B9156 /* BusWatcher.swift */; };
 		B8DB1DE51A96DF4F000B9156 /* BusWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DE31A96DF1C000B9156 /* BusWatcher.swift */; };
+		B8F5194E1ABB7EDE004CDF95 /* XCTestCase+KIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5194D1ABB7EDE004CDF95 /* XCTestCase+KIF.swift */; };
+		B8F519501ABB7FC1004CDF95 /* SeeBusLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5194F1ABB7FC1004CDF95 /* SeeBusLines.swift */; };
 		DAB186F13091C832B31C3367 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C0925BFABF74048DB58A2C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -50,8 +51,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15949B83F3793DE72FB2D8C0 /* Pods_Metro_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Metro_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B76B04CB7BCF9863AD4FC4F /* Pods-Metro Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Metro Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Metro Tracker/Pods-Metro Tracker.debug.xcconfig"; sourceTree = "<group>"; };
+		33089040F576CCC4FE8161F1 /* Pods-Metro TrackerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Metro TrackerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Metro TrackerTests/Pods-Metro TrackerTests.release.xcconfig"; sourceTree = "<group>"; };
+		46FBBA289C7707C6FF4B89C2 /* Pods-Metro Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Metro Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Metro Tracker/Pods-Metro Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		7DD2A5B7334C7537366AD7A0 /* Pods_Metro_TrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Metro_TrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4AC9FE8F160AEEFEE7BBF61 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A95FAA929888783BB6ACAE05 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AC997A21627DBAF5F25799A3 /* Pods-Metro TrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Metro TrackerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Metro TrackerTests/Pods-Metro TrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8169E3B1AB61D5F007BCFFF /* NotificationRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRequestViewController.swift; sourceTree = "<group>"; };
 		B849DCBF1A93C4DF00B5EC21 /* Metro Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Metro Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B849DCC31A93C4DF00B5EC21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,17 +69,17 @@
 		B849DCD11A93C4DF00B5EC21 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B849DCD71A93C4DF00B5EC21 /* Metro TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Metro TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B849DCDC1A93C4DF00B5EC21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B849DCDD1A93C4DF00B5EC21 /* Metro_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metro_TrackerTests.swift; sourceTree = "<group>"; };
 		B849DCE71A93C5E400B5EC21 /* BusLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLine.swift; sourceTree = "<group>"; };
 		B849DCE91A93C69700B5EC21 /* BusLineTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTableViewController.swift; sourceTree = "<group>"; };
-		B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTests.swift; sourceTree = "<group>"; };
-		B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusLineTableViewControllerTests.swift; sourceTree = "<group>"; };
 		B89FD9181A940D7C00906532 /* MetroAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetroAPIService.swift; sourceTree = "<group>"; };
 		B8C6B0011AA0369E00D7A3A3 /* NotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRequest.swift; sourceTree = "<group>"; };
 		B8DB1DDA1A955F02000B9156 /* BusStopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStopTableViewController.swift; sourceTree = "<group>"; };
 		B8DB1DDC1A955FBA000B9156 /* BusStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusStop.swift; sourceTree = "<group>"; };
 		B8DB1DE01A96D77F000B9156 /* ScheduleReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleReminderViewController.swift; sourceTree = "<group>"; };
 		B8DB1DE31A96DF1C000B9156 /* BusWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusWatcher.swift; sourceTree = "<group>"; };
+		B8F5194A1ABB7DDB004CDF95 /* Metro TrackerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Metro TrackerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		B8F5194D1ABB7EDE004CDF95 /* XCTestCase+KIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCTestCase+KIF.swift"; path = "support/XCTestCase+KIF.swift"; sourceTree = "<group>"; };
+		B8F5194F1ABB7FC1004CDF95 /* SeeBusLines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeBusLines.swift; sourceTree = "<group>"; };
 		E1C0925BFABF74048DB58A2C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77051A96B2E25DEFADD0C3BC /* Pods.framework in Frameworks */,
+				2290F8F303B740C5B846F2B4 /* Pods_Metro_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB186F13091C832B31C3367 /* Pods.framework in Frameworks */,
+				8186DA72B2FE18C8CA70340B /* Pods_Metro_TrackerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				E1C0925BFABF74048DB58A2C /* Pods.framework */,
+				15949B83F3793DE72FB2D8C0 /* Pods_Metro_Tracker.framework */,
+				7DD2A5B7334C7537366AD7A0 /* Pods_Metro_TrackerTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,6 +120,10 @@
 			children = (
 				A95FAA929888783BB6ACAE05 /* Pods.debug.xcconfig */,
 				A4AC9FE8F160AEEFEE7BBF61 /* Pods.release.xcconfig */,
+				1B76B04CB7BCF9863AD4FC4F /* Pods-Metro Tracker.debug.xcconfig */,
+				AC997A21627DBAF5F25799A3 /* Pods-Metro TrackerTests.debug.xcconfig */,
+				46FBBA289C7707C6FF4B89C2 /* Pods-Metro Tracker.release.xcconfig */,
+				33089040F576CCC4FE8161F1 /* Pods-Metro TrackerTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -166,10 +181,9 @@
 		B849DCDA1A93C4DF00B5EC21 /* Metro TrackerTests */ = {
 			isa = PBXGroup;
 			children = (
-				B849DCDD1A93C4DF00B5EC21 /* Metro_TrackerTests.swift */,
-				B849DCF01A93D36000B5EC21 /* BusLineTableViewControllerTests.swift */,
-				B849DCED1A93CFFC00B5EC21 /* BusLineTests.swift */,
 				B849DCDB1A93C4DF00B5EC21 /* Supporting Files */,
+				B8F5194A1ABB7DDB004CDF95 /* Metro TrackerTests-Bridging-Header.h */,
+				B8F5194F1ABB7FC1004CDF95 /* SeeBusLines.swift */,
 			);
 			path = "Metro TrackerTests";
 			sourceTree = "<group>";
@@ -178,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				B849DCDC1A93C4DF00B5EC21 /* Info.plist */,
+				B8F5194D1ABB7EDE004CDF95 /* XCTestCase+KIF.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -302,7 +317,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Metro TrackerTests/Pods-Metro TrackerTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		64D4F6F5545DDE02529DFF4D /* Check Pods Manifest.lock */ = {
@@ -347,7 +362,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Metro TrackerTests/Pods-Metro TrackerTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D437DA38524D6BC638D98410 /* Embed Pods Frameworks */ = {
@@ -362,7 +377,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Metro Tracker/Pods-Metro Tracker-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E36B5EBC9D9BCB5DC6FA27CB /* Copy Pods Resources */ = {
@@ -377,7 +392,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Metro Tracker/Pods-Metro Tracker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -408,15 +423,14 @@
 				B8C6B0001AA034E100D7A3A3 /* AppDelegate.swift in Sources */,
 				B8DB1DE21A96D793000B9156 /* ScheduleReminderViewController.swift in Sources */,
 				B8DB1DE51A96DF4F000B9156 /* BusWatcher.swift in Sources */,
+				B8F5194E1ABB7EDE004CDF95 /* XCTestCase+KIF.swift in Sources */,
 				B8DB1DDF1A95636F000B9156 /* BusStop.swift in Sources */,
-				B849DCF11A93D36000B5EC21 /* BusLineTableViewControllerTests.swift in Sources */,
-				B849DCEE1A93CFFC00B5EC21 /* BusLineTests.swift in Sources */,
 				B849DCEF1A93D08400B5EC21 /* BusLine.swift in Sources */,
 				B849DCF21A93D61500B5EC21 /* BusLineTableViewController.swift in Sources */,
 				B8C6B0031AA0369E00D7A3A3 /* NotificationRequest.swift in Sources */,
 				B8169E3D1AB61D5F007BCFFF /* NotificationRequestViewController.swift in Sources */,
 				B89FD91A1A940E1400906532 /* MetroAPIService.swift in Sources */,
-				B849DCDE1A93C4DF00B5EC21 /* Metro_TrackerTests.swift in Sources */,
+				B8F519501ABB7FC1004CDF95 /* SeeBusLines.swift in Sources */,
 				B8DB1DDE1A95633E000B9156 /* BusStopTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,7 +468,6 @@
 		B849DCDF1A93C4DF00B5EC21 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -496,7 +509,6 @@
 		B849DCE01A93C4DF00B5EC21 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -530,7 +542,7 @@
 		};
 		B849DCE21A93C4DF00B5EC21 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A95FAA929888783BB6ACAE05 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 1B76B04CB7BCF9863AD4FC4F /* Pods-Metro Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Metro Tracker/Info.plist";
@@ -541,7 +553,7 @@
 		};
 		B849DCE31A93C4DF00B5EC21 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4AC9FE8F160AEEFEE7BBF61 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 46FBBA289C7707C6FF4B89C2 /* Pods-Metro Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Metro Tracker/Info.plist";
@@ -552,9 +564,10 @@
 		};
 		B849DCE51A93C4DF00B5EC21 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A95FAA929888783BB6ACAE05 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = AC997A21627DBAF5F25799A3 /* Pods-Metro TrackerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -566,15 +579,18 @@
 				INFOPLIST_FILE = "Metro TrackerTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Metro TrackerTests/Metro TrackerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Metro Tracker.app/Metro Tracker";
 			};
 			name = Debug;
 		};
 		B849DCE61A93C4DF00B5EC21 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4AC9FE8F160AEEFEE7BBF61 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 33089040F576CCC4FE8161F1 /* Pods-Metro TrackerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -582,6 +598,7 @@
 				INFOPLIST_FILE = "Metro TrackerTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Metro TrackerTests/Metro TrackerTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Metro Tracker.app/Metro Tracker";
 			};
 			name = Release;

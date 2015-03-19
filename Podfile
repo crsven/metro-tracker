@@ -1,6 +1,10 @@
+use_frameworks!
 source 'https://github.com/CocoaPods/Specs.git'
 
-link_with 'Metro Tracker', 'Metro TrackerTests'
+target 'Metro Tracker' do
+  pod 'Alamofire', '~> 1.1'
+end
 
-pod 'Alamofire', '~> 1.1'
-pod 'Nocilla'
+target 'Metro TrackerTests' do
+  pod 'KIF', '~> 3.2'
+end
