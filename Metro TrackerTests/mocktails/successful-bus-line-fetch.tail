@@ -1,0 +1,13 @@
+GET
+routes
+200
+application/json
+
+{
+    "items": [
+        {
+        "display_name": "some bus",
+        "id": "720"
+        }
+    ]
+}

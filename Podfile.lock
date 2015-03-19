@@ -1,15 +1,35 @@
 PODS:
   - Alamofire (1.1.4)
+  - AMYServer (2.0.0):
+    - GRMustache (~> 7.0)
+    - KIF (~> 3.0)
+  - GRMustache (7.3.1):
+    - JRSwizzle (~> 1.0)
+  - JRSwizzle (1.0)
   - KIF (3.2.0):
     - KIF/XCTest (= 3.2.0)
   - KIF/XCTest (3.2.0)
 
 DEPENDENCIES:
   - Alamofire (~> 1.1)
+  - AMYServer (from `https://github.com/kif-framework/AMYServer.git`, tag `v2.0.0`)
   - KIF (~> 3.2)
+
+EXTERNAL SOURCES:
+  AMYServer:
+    :git: https://github.com/kif-framework/AMYServer.git
+    :tag: v2.0.0
+
+CHECKOUT OPTIONS:
+  AMYServer:
+    :git: https://github.com/kif-framework/AMYServer.git
+    :tag: v2.0.0
 
 SPEC CHECKSUMS:
   Alamofire: 524225da382071ee3e6d0badd0ee4b4dc36740de
+  AMYServer: 9394f20daa05096f2106684b90f38a861b79943e
+  GRMustache: 407e2f2da1e4b44225fcecd9a7c1b93632dba780
+  JRSwizzle: 30da7a2c539a4ebf954b16d15f6dd8221c9f6fa5
   KIF: 6f94a23566fd05b809f5d3bc5231a965b51121b9
 
 COCOAPODS: 0.36.0

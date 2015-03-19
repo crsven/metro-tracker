@@ -37,6 +37,8 @@
 		B8DB1DE51A96DF4F000B9156 /* BusWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB1DE31A96DF1C000B9156 /* BusWatcher.swift */; };
 		B8F5194E1ABB7EDE004CDF95 /* XCTestCase+KIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5194D1ABB7EDE004CDF95 /* XCTestCase+KIF.swift */; };
 		B8F519501ABB7FC1004CDF95 /* SeeBusLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F5194F1ABB7FC1004CDF95 /* SeeBusLines.swift */; };
+		B8F519521ABB8412004CDF95 /* successful-bus-line-fetch.tail in Resources */ = {isa = PBXBuildFile; fileRef = B8F519511ABB8412004CDF95 /* successful-bus-line-fetch.tail */; };
+		B8F519541ABB8509004CDF95 /* MetroServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F519531ABB8509004CDF95 /* MetroServer.swift */; };
 		DAB186F13091C832B31C3367 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C0925BFABF74048DB58A2C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -80,6 +82,8 @@
 		B8F5194A1ABB7DDB004CDF95 /* Metro TrackerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Metro TrackerTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		B8F5194D1ABB7EDE004CDF95 /* XCTestCase+KIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "XCTestCase+KIF.swift"; path = "support/XCTestCase+KIF.swift"; sourceTree = "<group>"; };
 		B8F5194F1ABB7FC1004CDF95 /* SeeBusLines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeeBusLines.swift; sourceTree = "<group>"; };
+		B8F519511ABB8412004CDF95 /* successful-bus-line-fetch.tail */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "successful-bus-line-fetch.tail"; path = "mocktails/successful-bus-line-fetch.tail"; sourceTree = "<group>"; };
+		B8F519531ABB8509004CDF95 /* MetroServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetroServer.swift; path = support/MetroServer.swift; sourceTree = "<group>"; };
 		E1C0925BFABF74048DB58A2C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -184,6 +188,7 @@
 				B849DCDB1A93C4DF00B5EC21 /* Supporting Files */,
 				B8F5194A1ABB7DDB004CDF95 /* Metro TrackerTests-Bridging-Header.h */,
 				B8F5194F1ABB7FC1004CDF95 /* SeeBusLines.swift */,
+				B8F519511ABB8412004CDF95 /* successful-bus-line-fetch.tail */,
 			);
 			path = "Metro TrackerTests";
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 		B849DCDB1A93C4DF00B5EC21 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B8F519531ABB8509004CDF95 /* MetroServer.swift */,
 				B849DCDC1A93C4DF00B5EC21 /* Info.plist */,
 				B8F5194D1ABB7EDE004CDF95 /* XCTestCase+KIF.swift */,
 			);
@@ -299,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B849DCF31A93E62900B5EC21 /* Main.storyboard in Resources */,
+				B8F519521ABB8412004CDF95 /* successful-bus-line-fetch.tail in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +434,7 @@
 				B8DB1DDF1A95636F000B9156 /* BusStop.swift in Sources */,
 				B849DCEF1A93D08400B5EC21 /* BusLine.swift in Sources */,
 				B849DCF21A93D61500B5EC21 /* BusLineTableViewController.swift in Sources */,
+				B8F519541ABB8509004CDF95 /* MetroServer.swift in Sources */,
 				B8C6B0031AA0369E00D7A3A3 /* NotificationRequest.swift in Sources */,
 				B8169E3D1AB61D5F007BCFFF /* NotificationRequestViewController.swift in Sources */,
 				B89FD91A1A940E1400906532 /* MetroAPIService.swift in Sources */,

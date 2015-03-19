@@ -8,11 +8,15 @@
 
 import UIKit
 import XCTest
+import Mocktail
 
-class SeeBusLines: XCTestCase {
+class SeeBusLines: KIFTestCase {
 
     override func setUp() {
         super.setUp()
+
+        Mocktail.startWithContentsOfDirectoryAtURL(NSBundle.mainBundle().m
+
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
@@ -21,7 +25,16 @@ class SeeBusLines: XCTestCase {
         super.tearDown()
     }
 
+    override func beforeAll() {
+        metroServer.start()
+    }
+
+    override func afterAll() {
+        metroServer.stop()
+    }
+
     func testSeeBusLines() {
+        metroServer.waitForRoutesRequest()
         tester.waitForViewWithAccessibilityLabel("Bus Line Search")
     }
 
